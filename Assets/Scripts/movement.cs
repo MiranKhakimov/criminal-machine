@@ -6,21 +6,26 @@ public class movement : MonoBehaviour
 {
     public float speed;
     public float jumpForce;
+    public Vector2 moveVector;
+    public GameObject groundChecker;
+    public LayerMask ground;
     public Animator anim;
-    public SpriteRenderer sr;
 
+    private bool faceRight;
     private bool atGround;
     private Rigidbody2D rb;
 
     void Start()
     {
+        atGround = true;
+        faceRight = true;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        sr = GetComponent<SpriteRenderer>();
     }  
 
     void Update()
     {
+        GroundCheck();
         Reflect();
         Jump();
     }
@@ -30,7 +35,6 @@ public class movement : MonoBehaviour
         Move();    
     }
 
-    public Vector2 moveVector;
     void Move()
     {
         moveVector.x = Input.GetAxis("Horizontal");
@@ -39,14 +43,25 @@ public class movement : MonoBehaviour
     }
 
     void Jump()
-    {   
-        if (Input.GetKeyDown(KeyCode.Space))
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && atGround)
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
     }
 
     void Reflect()
     {
-        sr.flipX = moveVector.x < 0;
+        if ((moveVector.x > 0 && !faceRight) || (moveVector.x < 0 && faceRight))
+        {
+            transform.localScale *= new Vector2(-1, 1);
+            faceRight = !faceRight;
+        }
+    }
+
+    void GroundCheck()
+    {
+        atGround = Physics2D.OverlapCircle(groundChecker.transform.position, groundChecker.GetComponent<CircleCollider2D>().radius, ground);
+        Debug.Log(atGround);
+        Debug.Log(groundChecker.GetComponent<CircleCollider2D>().radius);
     }
 
 }
