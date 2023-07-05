@@ -61,7 +61,6 @@ public class movement : MonoBehaviour
     {
         atGround = Physics2D.OverlapCircle(groundChecker.transform.position, groundChecker.GetComponent<CircleCollider2D>().radius, ground);
         Debug.Log(atGround);
-        Debug.Log(groundChecker.GetComponent<CircleCollider2D>().radius);
     }
 
 }
