@@ -7,7 +7,7 @@ using UnityEngine;
 public class attack_input : MonoBehaviour
 {
     List<List<int>> input_matrix = new List<List<int>> {new List<int> {7, 8, 9}, new List<int> {4, 5, 6}, new List<int> {1, 2, 3}};
-    List<int> frames_input = new List<int>{5 * 20};
+    List<int> frames_input = new List<int>{5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5};
     int x, y;
     // Start is called before the first frame update
     void Start()
