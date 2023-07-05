@@ -21,8 +21,8 @@ public class movement : MonoBehaviour
 
     void Update()
     {
-        Jump();
         Reflect();
+        Jump();
     }
 
     void FixedUpdate()
