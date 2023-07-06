@@ -12,12 +12,12 @@ public class movement : MonoBehaviour
     public Animator anim;
 
     private bool faceRight;
-    private bool atGround;
+    private bool onGround;
     private Rigidbody2D rb;
 
     void Start()
     {
-        atGround = true;
+        onGround = true;
         faceRight = true;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -44,7 +44,7 @@ public class movement : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.W) && atGround)
+        if (Input.GetKeyDown(KeyCode.W) && onGround)
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
     }
 
@@ -59,7 +59,8 @@ public class movement : MonoBehaviour
 
     void GroundCheck()
     {
-        atGround = Physics2D.OverlapCircle(groundChecker.transform.position, groundChecker.GetComponent<CircleCollider2D>().radius, ground);
+        anim.SetBool("onGround", onGround);
+        onGround = Physics2D.OverlapCircle(groundChecker.transform.position, groundChecker.GetComponent<CircleCollider2D>().radius, ground);
     }
 
 }
