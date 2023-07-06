@@ -8,6 +8,10 @@ using UnityEngine.UIElements;
 
 public class attack_input : MonoBehaviour
 {
+    public GameObject fireballPrefab;
+    public Transform FirePointTransform;
+    private Vector2 FirePoint;
+
     List<List<int>> input_matrix = new List<List<int>> {new List<int> {7, 8, 9}, new List<int> {4, 5, 6}, new List<int> {1, 2, 3}};
     List<int> frames_input = Enumerable.Repeat(5, 50).ToList();
     List<int> input_for_cast;
@@ -15,12 +19,13 @@ public class attack_input : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        FirePoint = FirePointTransform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+        FirePoint = FirePointTransform.position;
         if (Input.GetKeyDown(KeyCode.P))
         {
             Input_Update();
@@ -31,6 +36,7 @@ public class attack_input : MonoBehaviour
                 if (IsSublist(input_for_cast, new List<int>{2, 1, 4}) || IsSublist(input_for_cast, new List<int>{2, 3, 6}))
                 {
                     Debug.Log("FIREBALL");
+                    var fireball = Instantiate(fireballPrefab, FirePoint, Quaternion.identity);
                     break;
                 }
             }
