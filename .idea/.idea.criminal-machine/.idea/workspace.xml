@@ -14,6 +14,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/attack_input.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/attack_input.cs" />
       </list>
     </option>
   </component>
@@ -84,6 +85,7 @@
       <workItem from="1688573310815" duration="34000" />
       <workItem from="1688574174059" duration="316000" />
       <workItem from="1688574856984" duration="5279000" />
+      <workItem from="1688639744935" duration="3299000" />
     </task>
     <servers />
   </component>
