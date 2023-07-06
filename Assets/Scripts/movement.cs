@@ -44,7 +44,7 @@ public class movement : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && atGround)
+        if (Input.GetKeyDown(KeyCode.W) && atGround)
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
     }
 
@@ -60,7 +60,6 @@ public class movement : MonoBehaviour
     void GroundCheck()
     {
         atGround = Physics2D.OverlapCircle(groundChecker.transform.position, groundChecker.GetComponent<CircleCollider2D>().radius, ground);
-        Debug.Log(atGround);
     }
 
 }

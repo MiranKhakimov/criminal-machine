@@ -12,13 +12,14 @@ public class attack_input : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        x = 1;
-        y = 1;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        x = 1;
+        y = 1;
         if (Input.GetKey(KeyCode.D))
         {
             x += 1;
@@ -35,7 +36,10 @@ public class attack_input : MonoBehaviour
         {
             y += 1;
         }
-        frames_input.RemoveRange(0, 1); 
+
+        Debug.Log(string.Join(",", frames_input.ToArray()));
+        frames_input.RemoveAt(0); 
         frames_input.Add(input_matrix[y][x]);
+        
     }
 }
