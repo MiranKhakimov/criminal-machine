@@ -8,6 +8,9 @@
       <e p="Assets" t="Include">
         <e p="Animations" t="Include" />
         <e p="Materials" t="Include" />
+        <e p="PreFabs" t="Include">
+          <e p="Fireball_script.cs" t="Include" />
+        </e>
         <e p="Scenes" t="Include" />
         <e p="Scripts" t="Include">
           <e p="attack_input.cs" t="Include" />
