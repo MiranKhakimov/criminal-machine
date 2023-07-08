@@ -10,8 +10,8 @@ public class movement : MonoBehaviour
     public GameObject groundChecker;
     public LayerMask ground;
     public Animator anim;
+    public bool faceRight;
 
-    private bool faceRight;
     private bool onGround;
     private Rigidbody2D rb;
 

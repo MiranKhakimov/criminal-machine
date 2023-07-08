@@ -35,8 +35,8 @@ public class attack_input : MonoBehaviour
             {
                 if (IsSublist(input_for_cast, new List<int>{2, 1, 4}) || IsSublist(input_for_cast, new List<int>{2, 3, 6}))
                 {
-                    Debug.Log("FIREBALL");
                     var fireball = Instantiate(fireballPrefab, FirePoint, Quaternion.identity);
+                    fireball.GetComponent<FireballMovement>().SetOrientation(GetComponent<movement>().faceRight);
                     break;
                 }
             }

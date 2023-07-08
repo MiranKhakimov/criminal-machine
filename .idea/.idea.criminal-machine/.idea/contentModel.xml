@@ -6,14 +6,16 @@
     <e p="C:\Users\WebUser\UnityProjects\criminal-machine" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="Animations" t="Include" />
-        <e p="Materials" t="Include" />
-        <e p="PreFabs" t="Include">
-          <e p="Fireball_script.cs" t="Include" />
+        <e p="Animations" t="Include">
+          <e p="Character Animation" t="Include" />
+          <e p="FireBallAnimation" t="Include" />
         </e>
+        <e p="Materials" t="Include" />
+        <e p="PreFabs" t="Include" />
         <e p="Scenes" t="Include" />
         <e p="Scripts" t="Include">
           <e p="attack_input.cs" t="Include" />
+          <e p="FireballMovement.cs" t="Include" />
           <e p="movement.cs" t="Include" />
         </e>
       </e>

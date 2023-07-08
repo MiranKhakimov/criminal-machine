@@ -11,15 +11,19 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17484A9A-F6B9-44DE-A5CD-9BE4DBB0DA2C/5c/8497fd82/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5952714A-D2D7-4640-B11D-BDBEB2584007/2f/f5aba30c/Collider2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5A41D6B7-1898-42EC-A409-FD0B1C3E3DCF/0/System.Linq.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/PreFabs/Fireball_script.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5952714A-D2D7-4640-B11D-BDBEB2584007/5e/819ed2d5/CapsuleCollider2D.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/attack_input.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/attack_input.cs" />
         <option value="$PROJECT_DIR$/Assets/PreFabs/Fireball_script.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/movement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/attack_input.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FireballMovement.cs" />
       </list>
     </option>
   </component>
@@ -90,7 +94,10 @@
       <workItem from="1688573310815" duration="34000" />
       <workItem from="1688574174059" duration="316000" />
       <workItem from="1688574856984" duration="5279000" />
-      <workItem from="1688639744935" duration="11114000" />
+      <workItem from="1688639744935" duration="11664000" />
+      <workItem from="1688735362523" duration="963000" />
+      <workItem from="1688742826710" duration="5751000" />
+      <workItem from="1688769025677" duration="3789000" />
     </task>
     <servers />
   </component>
