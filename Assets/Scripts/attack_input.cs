@@ -11,7 +11,8 @@ public class attack_input : MonoBehaviour
     public GameObject fireballPrefab;
     public Transform firePointTransform;
     private Vector2 firePoint;
-    private bool fireBallOnCD;
+    private bool fireBallOnCD; 
+    public GameObject capsule;
 
     List<List<int>> input_matrix = new List<List<int>> {new List<int> {7, 8, 9}, new List<int> {4, 5, 6}, new List<int> {1, 2, 3}};
     List<int> frames_input = Enumerable.Repeat(5, 50).ToList();
@@ -28,27 +29,21 @@ public class attack_input : MonoBehaviour
         firePoint = firePointTransform.position;
         if (Input.GetKeyDown(KeyCode.P))
         {
-            Input_Update();
+            InputUpdate();
             Debug.Log(string.Join(",", frames_input.ToArray()));
             for (int i = 0; i < input_for_cast.Capacity - 2; i++) 
             {
                 if (IsSublist(input_for_cast, new List<int>{2, 1, 4}) || IsSublist(input_for_cast, new List<int>{2, 3, 6}))
                 {
-                    //я короче баран ебучий... я минут 40 пытался придумать как из всей последовательсности вводов убрать ввод проджектайла
-                    //нашел функцию, удалил из списка циферки. И!!!! я все поломат!, ничего не работат! После этого я понял, что почему-то
-                    //список  frames_input не восполняется и решил его восполнить, написал сюда создание списка(оно вон 40 строкой) и все РАБОТАТ.
-                    //НО В ЧЕМ я БАРАН то ебучий, я вспонил, что ты сказал о кулдауне на скиллы и как бы нахуй я это делал, если реализация моей идеи простейшее, а более удачное уже даже было озвучено
-                    frames_input = Enumerable.Repeat(5, 50).ToList();
                     var fireball = Instantiate(fireballPrefab, firePoint, Quaternion.identity);
-                    fireball.GetComponent<FireballMovement>().SetOrientation(GetComponent<movement>().faceRight);
-                    Stupor(150);
+                    fireball.GetComponent<FireballMovement>().SetOrientation(capsule.GetComponent<movement>().faceRight);
                     break;
                 }
             }
         }
     }
 
-    void Input_Update() 
+    void InputUpdate() 
     {
         input_for_cast = new List<int>();
         input_for_cast.Add(frames_input[0]);
@@ -105,12 +100,4 @@ public class attack_input : MonoBehaviour
 
         return false;
     }
-
-    void Stupor(int epta)
-    {
-        
-    }
-    
-    
-    
 }

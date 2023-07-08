@@ -15,6 +15,7 @@
         <e p="Scenes" t="Include" />
         <e p="Scripts" t="Include">
           <e p="attack_input.cs" t="Include" />
+          <e p="CooldownTimer.cs" t="Include" />
           <e p="FireballMovement.cs" t="Include" />
           <e p="movement.cs" t="Include" />
         </e>

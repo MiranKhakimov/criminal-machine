@@ -1,15 +1,11 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
-using Unity.VisualScripting;
+
 using UnityEngine;
 
 public class FireballMovement : MonoBehaviour
 {
     public float speed;
     public float flightRange;
-    public Transform projectileSender;
     public float startPositionX;
 
     private Rigidbody2D rigidBody;
