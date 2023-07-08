@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CooldownTimer : MonoBehaviour
+public class punch : MonoBehaviour
 {
-    private float FireballCooldown;
+    // Start is called before the first frame update
     void Start()
     {
         

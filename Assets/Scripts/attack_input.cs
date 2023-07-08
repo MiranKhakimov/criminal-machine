@@ -8,15 +8,15 @@ using UnityEngine.UIElements;
 
 public class attack_input : MonoBehaviour
 {
-    public GameObject fireballPrefab;
+    public List<GameObject> fireballPrefab;
     public Transform firePointTransform;
     private Vector2 firePoint;
-    private bool fireBallOnCD; 
+    public List<int> fireballFrames; 
     public GameObject capsule;
 
-    List<List<int>> input_matrix = new List<List<int>> {new List<int> {7, 8, 9}, new List<int> {4, 5, 6}, new List<int> {1, 2, 3}};
-    List<int> frames_input = Enumerable.Repeat(5, 50).ToList();
-    List<int> input_for_cast;
+    List<List<int>> inputMatrix = new List<List<int>> {new List<int> {7, 8, 9}, new List<int> {4, 5, 6}, new List<int> {1, 2, 3}};
+    List<int> framesInput = Enumerable.Repeat(5, 85).ToList();
+    List<int> inputForCast;
     int x, y;
 
     void Start()
@@ -30,30 +30,27 @@ public class attack_input : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             InputUpdate();
-            Debug.Log(string.Join(",", frames_input.ToArray()));
-            for (int i = 0; i < input_for_cast.Capacity - 2; i++) 
-            {
-                if (IsSublist(input_for_cast, new List<int>{2, 1, 4}) || IsSublist(input_for_cast, new List<int>{2, 3, 6}))
-                {
-                    var fireball = Instantiate(fireballPrefab, firePoint, Quaternion.identity);
-                    fireball.GetComponent<FireballMovement>().SetOrientation(capsule.GetComponent<movement>().faceRight);
-                    break;
-                }
+            Debug.Log(string.Join(",", framesInput.ToArray()));
+            Debug.Log(string.Join(",", inputForCast.ToArray()));
+            if (IsSublist(inputForCast, new List<int>{2, 1, 4}) || IsSublist(inputForCast, new List<int>{2, 3, 6}))
+            { 
+                GetComponent<FireBall>().Create(fireballPrefab[0], firePoint, capsule, fireballFrames);
             }
+            
         }
     }
 
     void InputUpdate() 
     {
-        input_for_cast = new List<int>();
-        input_for_cast.Add(frames_input[0]);
-        for (int i = 1; i < frames_input.Count - 1; i++)
+        inputForCast = new List<int>();
+        inputForCast.Add(framesInput[0]);
+        for (int i = 1; i < framesInput.Count; i++)
         {
-            if (frames_input[i] != 5)
+            if (framesInput[i] != 5)
             {
-                if (frames_input[i] != frames_input[i - 1])
+                if (framesInput[i] != framesInput[i - 1])
                 {
-                    input_for_cast.Add(frames_input[i]);
+                    inputForCast.Add(framesInput[i]);
                 }
             }
         }
@@ -80,8 +77,8 @@ public class attack_input : MonoBehaviour
             y += 1;
         }
         
-        frames_input.RemoveAt(0); 
-        frames_input.Add(input_matrix[y][x]);
+        framesInput.RemoveAt(0); 
+        framesInput.Add(inputMatrix[y][x]);
     }
 
     static bool IsSublist<T>(IEnumerable<T> list1, IEnumerable<T> list2)

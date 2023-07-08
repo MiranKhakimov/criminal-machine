@@ -165,7 +165,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5.07
   flightRange: 5
-  projectileSender: {fileID: 0}
   startPositionX: 0
 --- !u!95 &4990271491396608667
 Animator:

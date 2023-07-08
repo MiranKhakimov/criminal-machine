@@ -15,9 +15,13 @@
         <e p="Scenes" t="Include" />
         <e p="Scripts" t="Include">
           <e p="attack_input.cs" t="Include" />
-          <e p="CooldownTimer.cs" t="Include" />
+          <e p="Attacks" t="Include">
+            <e p="FireBall.cs" t="Include" />
+            <e p="Punch.cs" t="Include" />
+          </e>
           <e p="FireballMovement.cs" t="Include" />
           <e p="movement.cs" t="Include" />
+          <e p="Status.cs" t="Include" />
         </e>
       </e>
       <e p="criminal-machine.sln" t="IncludeFlat" />

@@ -2,19 +2,19 @@ using System;
 
 using UnityEngine;
 
-public class FireballMovement : MonoBehaviour
+public class FireballMovement : MonoBehaviour 
 {
     public float speed;
     public float flightRange;
     public float startPositionX;
 
     private Rigidbody2D rigidBody;
-    private CapsuleCollider2D collider;
+    private CapsuleCollider2D capsuleCollider2D;
     
     void Start()
     {
         startPositionX = transform.position.x;
-        collider = GetComponent<CapsuleCollider2D>(); 
+        capsuleCollider2D = GetComponent<CapsuleCollider2D>(); 
         rigidBody = GetComponent<Rigidbody2D>();
         rigidBody.velocity = new Vector2(speed, rigidBody.velocity.y);
     }
@@ -26,7 +26,7 @@ public class FireballMovement : MonoBehaviour
             Destroy(gameObject);
         };
         
-        if (collider.IsTouchingLayers())
+        if (capsuleCollider2D.IsTouchingLayers())
         {
             Destroy(gameObject);
         };
