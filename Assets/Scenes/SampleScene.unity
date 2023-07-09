@@ -312,6 +312,7 @@ MonoBehaviour:
   jumpForce: 5
   moveVector: {x: 0, y: 0}
   groundChecker: {fileID: 789546317}
+  character: {fileID: 0}
   ground:
     serializedVersion: 2
     m_Bits: 8
@@ -684,6 +685,7 @@ GameObject:
   - component: {fileID: 1389557629}
   - component: {fileID: 1389557631}
   - component: {fileID: 1389557632}
+  - component: {fileID: 1389557633}
   m_Layer: 6
   m_Name: Character
   m_TagString: Untagged
@@ -734,6 +736,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52db2070554d090479e608de4b84426e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1389557633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389557628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffa3e5f48b753f846a8b3a9b98053f12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1724315993
