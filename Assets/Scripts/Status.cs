@@ -3,14 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CooldownTimer : MonoBehaviour
+public class Status : MonoBehaviour
 {
     private bool startupStatus;
     private bool activeFramesStatus;
     private bool recoveryStatus;
-    public int startup;
-    public int activeFrames;
-    public int recovery;
+    
+    private int startup;
+    private int activeFrames;
+    private int recovery;
+    
     void Start()
     {
         
@@ -35,6 +37,20 @@ public class CooldownTimer : MonoBehaviour
             activeFramesStatus = false;
             recoveryStatus = true;
             recovery -= 1;
+        }
+    }
+
+    public void FramesUpdate(List<int> frames)
+    {
+        if (frames.Count == 3)
+        {
+            startup += frames[0];
+            activeFrames += frames[1];
+            recovery += frames[2];
+        }
+        else
+        {
+            Debug.LogError("ОШИБКА В УКАЗАНИИ КАДРОВ! Получаемые значения:  " + string.Join(",", frames.ToArray()));
         }
     }
 

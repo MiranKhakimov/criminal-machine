@@ -23,11 +23,11 @@
         <option value="$PROJECT_DIR$/Assets/attack_input.cs" />
         <option value="$PROJECT_DIR$/Assets/PreFabs/Fireball_script.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CooldownTimer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/movement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FireballMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Attacks/FireBall.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/attack_input.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Status.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/movement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/attack_input.cs" />
       </list>
     </option>
   </component>
@@ -106,6 +106,7 @@
       <workItem from="1688817291839" duration="3840000" />
       <workItem from="1688829795430" duration="2000" />
       <workItem from="1688842996724" duration="5668000" />
+      <workItem from="1688894194374" duration="3459000" />
     </task>
     <servers />
   </component>

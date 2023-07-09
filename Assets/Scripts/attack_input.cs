@@ -27,37 +27,23 @@ public class attack_input : MonoBehaviour
     void Update()
     {
         firePoint = firePointTransform.position;
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            InputUpdate();
-            Debug.Log(string.Join(",", framesInput.ToArray()));
-            Debug.Log(string.Join(",", inputForCast.ToArray()));
-            if (IsSublist(inputForCast, new List<int>{2, 1, 4}) || IsSublist(inputForCast, new List<int>{2, 3, 6}))
-            { 
-                GetComponent<FireBall>().Create(fireballPrefab[0], firePoint, capsule, fireballFrames);
-            }
-            
-        }
-    }
-
-    void InputUpdate() 
-    {
-        inputForCast = new List<int>();
-        inputForCast.Add(framesInput[0]);
-        for (int i = 1; i < framesInput.Count; i++)
-        {
-            if (framesInput[i] != 5)
-            {
-                if (framesInput[i] != framesInput[i - 1])
-                {
-                    inputForCast.Add(framesInput[i]);
-                }
-            }
-        }
     }
 
     void FixedUpdate()
     {
+        if (capsule.GetComponent<movement>().status == "neutral")
+        {
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                InputUpdate();
+                if (IsSublist(inputForCast, new List<int>{2, 1, 4}) || IsSublist(inputForCast, new List<int>{2, 3, 6}))
+                { 
+                    GetComponent<FireBall>().Create(fireballPrefab[0], firePoint, capsule, fireballFrames);
+                }
+            
+            }
+        }
+        
         x = 1;
         y = 1;
         if (Input.GetKey(KeyCode.D))
@@ -79,6 +65,22 @@ public class attack_input : MonoBehaviour
         
         framesInput.RemoveAt(0); 
         framesInput.Add(inputMatrix[y][x]);
+    }
+
+    void InputUpdate() 
+    {
+        inputForCast = new List<int>();
+        inputForCast.Add(framesInput[0]);
+        for (int i = 1; i < framesInput.Count; i++)
+        {
+            if (framesInput[i] != 5)
+            {
+                if (framesInput[i] != framesInput[i - 1])
+                {
+                    inputForCast.Add(framesInput[i]);
+                }
+            }
+        }
     }
 
     static bool IsSublist<T>(IEnumerable<T> list1, IEnumerable<T> list2)

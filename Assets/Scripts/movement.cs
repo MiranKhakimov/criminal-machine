@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class movement : MonoBehaviour
@@ -8,6 +10,7 @@ public class movement : MonoBehaviour
     public float jumpForce;
     public Vector2 moveVector;
     public GameObject groundChecker;
+    public GameObject character;
     public LayerMask ground;
     public Animator anim;
     public bool faceRight;
@@ -15,24 +18,37 @@ public class movement : MonoBehaviour
     private bool onGround;
     private Rigidbody2D rb;
 
+    protected internal String status;
+
     void Start()
     {
         onGround = true;
         faceRight = true;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-    }  
+    }
 
     void Update()
     {
         GroundCheck();
-        Reflect();
-        Jump();
+        
+        status = character.GetComponent<Status>().GetFrameStatus();
+        
+        if (status == "neutral")
+        {
+            Reflect();
+            Jump();
+        }
     }
 
     void FixedUpdate()
     {
-        Move();    
+        status = character.GetComponent<Status>().GetFrameStatus();
+        
+        if (status == "neutral")
+        {
+            Move();
+        }
     }
 
     void Move()
@@ -62,6 +78,6 @@ public class movement : MonoBehaviour
         anim.SetBool("onGround", onGround);
         onGround = Physics2D.OverlapCircle(groundChecker.transform.position, groundChecker.GetComponent<CircleCollider2D>().radius, ground);
     }
-
+    
 }
     
