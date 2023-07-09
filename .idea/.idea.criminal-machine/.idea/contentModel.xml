@@ -21,6 +21,7 @@
           </e>
           <e p="FireballMovement.cs" t="Include" />
           <e p="movement.cs" t="Include" />
+          <e p="Scene.cs" t="Include" />
           <e p="Status.cs" t="Include" />
         </e>
       </e>

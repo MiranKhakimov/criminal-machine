@@ -33,7 +33,7 @@ public class movement : MonoBehaviour
         GroundCheck();
         
         status = character.GetComponent<Status>().GetFrameStatus();
-        
+        moveVector.x = Input.GetAxis("Horizontal");
         if (status == "neutral")
         {
             Reflect();
@@ -47,7 +47,14 @@ public class movement : MonoBehaviour
         
         if (status == "neutral")
         {
-            Move();
+            if (onGround)
+            {
+                Move();
+            }
+        }
+        else
+        {
+            Input.ResetInputAxes();
         }
     }
 

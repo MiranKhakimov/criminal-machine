@@ -34,9 +34,16 @@ public class Status : MonoBehaviour
         }
         else if (recovery > 0)
         {
+            startupStatus = false;
             activeFramesStatus = false;
             recoveryStatus = true;
             recovery -= 1;
+        }
+        else
+        {
+            startupStatus = false;
+            activeFramesStatus = false;
+            recoveryStatus = false;
         }
     }
 
@@ -61,7 +68,6 @@ public class Status : MonoBehaviour
             return "startup";
         }
         else if (activeFramesStatus)
-
         {
             return "activeFrames";
         }

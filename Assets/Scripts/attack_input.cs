@@ -15,7 +15,7 @@ public class attack_input : MonoBehaviour
     public GameObject capsule;
 
     List<List<int>> inputMatrix = new List<List<int>> {new List<int> {7, 8, 9}, new List<int> {4, 5, 6}, new List<int> {1, 2, 3}};
-    List<int> framesInput = Enumerable.Repeat(5, 85).ToList();
+    List<int> framesInput = Enumerable.Repeat(5, 100).ToList();
     List<int> inputForCast;
     int x, y;
 
@@ -27,23 +27,25 @@ public class attack_input : MonoBehaviour
     void Update()
     {
         firePoint = firePointTransform.position;
-    }
-
-    void FixedUpdate()
-    {
+        
         if (capsule.GetComponent<movement>().status == "neutral")
         {
             if (Input.GetKeyDown(KeyCode.P))
             {
+                Debug.Log(string.Join(",", framesInput.ToArray()));
                 InputUpdate();
                 if (IsSublist(inputForCast, new List<int>{2, 1, 4}) || IsSublist(inputForCast, new List<int>{2, 3, 6}))
                 { 
-                    GetComponent<FireBall>().Create(fireballPrefab[0], firePoint, capsule, fireballFrames);
+                    Debug.Log("FIREBALL");
+                    GetComponent<FireBall>().Create(gameObject, fireballPrefab[0], firePoint, capsule, fireballFrames);
                 }
             
             }
         }
-        
+    }
+
+    void FixedUpdate()
+    {
         x = 1;
         y = 1;
         if (Input.GetKey(KeyCode.D))
